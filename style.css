@@ -6,14 +6,14 @@
 }
 #player1{
     background-color: blue;
-    width: 5px;
+    width: 10px;
     height: 65px;
     margin-left: 5px;
     position: absolute;
 }
 #player2{
     background-color: red;
-    width: 5px;
+    width: 10px;
     height: 65px;
     margin-left: 590px;
     position: absolute;
@@ -24,4 +24,5 @@
     height: 10px;
     margin-left: 295px;
     margin-top: 170px;
+    position: absolute;
 }
