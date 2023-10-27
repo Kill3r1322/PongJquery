@@ -19,10 +19,9 @@ document.addEventListener('keyup', (event) => {
 });
 
 const duration = 10
-
 $(document).keydown(function () {
     if (keys.includes("ArrowUp")) {
-        $('#player1').animate(
+        $('#player2').animate(
             { "bottom": "+=4px" },
             {
                 duration,
@@ -30,7 +29,7 @@ $(document).keydown(function () {
     }
 
     if (keys.includes("ArrowDown")) {
-        $('#player1').animate(
+        $('#player2').animate(
             { "bottom": "-=4px" },
             {
                 duration,
@@ -38,7 +37,7 @@ $(document).keydown(function () {
     }
 
     if (keys.includes("w")) {
-        $('#player2').animate(
+        $('#player1').animate(
             { "bottom": "+=4px" },
             {
                 duration,
@@ -46,7 +45,7 @@ $(document).keydown(function () {
     }
 
     if (keys.includes("s")) {
-        $('#player2').animate(
+        $('#player1').animate(
             { "bottom": "-=4px" },
             {
                 duration,
