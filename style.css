@@ -66,7 +66,7 @@
     background-color: red;
     width: 10px;
     height: 65px;
-    margin-left: 585px;
+    margin-left: 580px;
     position: absolute;
 }
 
@@ -83,7 +83,14 @@
 input[type=button] {
     width: 100px;
     height: 50px;
-    margin-left: 250px;
+    margin-left: 245px;
     margin-top: 150px;
     position: absolute;
 }
+ 
+#head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+  }
