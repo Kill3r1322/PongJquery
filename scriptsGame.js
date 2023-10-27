@@ -18,26 +18,23 @@ document.addEventListener('keyup', (event) => {
 	console.log('keys array after unpress = ' + keys);
 });
 
+class Player {
+    constructor() {
+        this.score = 0;
+        this.position = 0;
+        const id="player";
+    }
+}
+const player1 = new Player();
+const player2 = new Player();
+
+player1.id = "#player1";
+player2.id = "#player2";
+
 const duration = 10
 $(document).keydown(function () {
-    if (keys.includes("ArrowUp")) {
-        $('#player2').animate(
-            { "bottom": "+=4px" },
-            {
-                duration,
-            })
-    }
-
-    if (keys.includes("ArrowDown")) {
-        $('#player2').animate(
-            { "bottom": "-=4px" },
-            {
-                duration,
-            })
-    }
-
     if (keys.includes("w")) {
-        $('#player1').animate(
+        $(player1.id).animate(
             { "bottom": "+=4px" },
             {
                 duration,
@@ -45,7 +42,23 @@ $(document).keydown(function () {
     }
 
     if (keys.includes("s")) {
-        $('#player1').animate(
+        $(player1.id).animate(
+            { "bottom": "-=4px" },
+            {
+                duration,
+            })
+    }
+    
+    if (keys.includes("ArrowUp")) {
+        $(player2.id).animate(
+            { "bottom": "+=4px" },
+            {
+                duration,
+            })
+    }
+
+    if (keys.includes("ArrowDown")) {
+        $(player2.id).animate(
             { "bottom": "-=4px" },
             {
                 duration,

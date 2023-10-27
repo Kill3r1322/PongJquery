@@ -5,20 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <title>gra</title>
 </head>
 
-<body>
+<body class="dark">
     <div>
         <h2>PONG</h2>
-    </div>
-    <div id="box">
-        <div id="ball"></div>
-        <div id="player1"></div>
-        <div id="player2"></div>
+        <button type="button" id="lightMode" class="btn btn-light">Light</button>
+        <button type="button" id="darkMode" class="btn btn-dark">Dark</button>
+    <div class="dark" id="box">
+        <div class="dark" id="ball"></div>
+        <div class="dark" id="player1"></div>
+        <div class="dark" id="player2"></div>
     </div>
 </body>
 <script src="jquery.js"></script>
-<script src="skrypty.js"></script>
-
+<script src="scriptsGame.js"></script>
+<script src="scriptsApperance.js"></script>
 </html>
