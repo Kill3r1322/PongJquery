@@ -1,0 +1,27 @@
+#box{
+    border: 2px solid #000000;
+    width: 600px;
+    height: 350px;
+    margin: 0 auto;
+}
+#player1{
+    background-color: blue;
+    width: 5px;
+    height: 65px;
+    margin-left: 5px;
+    position: absolute;
+}
+#player2{
+    background-color: red;
+    width: 5px;
+    height: 65px;
+    margin-left: 590px;
+    position: absolute;
+}
+#ball{
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    margin-left: 295px;
+    margin-top: 170px;
+}
