@@ -52,6 +52,7 @@
     width: 600px;
     height: 350px;
     margin: 0 auto;
+    position: relative ;
 }
 
 #player1 {
@@ -74,8 +75,8 @@
     background-color: rgb(0, 0, 0);
     width: 20px;
     height: 20px;
-    margin-left: 290px;
-    margin-top: 170px;
+    margin-left: 0%;
+    margin-top: 0px;
     position: absolute;
     border-radius: 100%;
 }
@@ -93,4 +94,13 @@ input[type=button] {
     flex-direction: column;
     align-items: center;
     padding-bottom: 10px;
+  }
+  .Score {
+    display: flex;
+    width: 50%;
+    float: left;
+    padding: 0 10px;
+    font-size: 50px;
+    font-weight: bold;
+    justify-content: center;
   }

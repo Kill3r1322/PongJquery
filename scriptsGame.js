@@ -6,7 +6,7 @@ document.addEventListener('keydown', (event) => {
     if ($.inArray(event.key, keys) == -1) {
         keys.push(event.key);
     }
-    console.log('keys array after pressed = ' + keys);
+  //  console.log('keys array after pressed = ' + keys);
 });
 // listen for which key is unpressed
 document.addEventListener('keyup', (event) => {
@@ -16,7 +16,7 @@ document.addEventListener('keyup', (event) => {
 	keys = $.grep(keys, function(value) {
 		return value != removeKey;
 	});
-	console.log('keys array after unpress = ' + keys);
+	//console.log('keys array after unpress = ' + keys);
 });
 
 class Player {
@@ -75,17 +75,33 @@ $(document).keydown(function () {
 });
 
 //pilka
+const box = $('#box')
+const boxSize ={width: 600, height:350};
+const ball = $('#ball')
 
-// const ball = document.getElementById("ball");
-// var degree = 45;
-// $(function () {
-//     setInterval(function () {
-//         //movment
-//         var ballPosition = $(ball).position();
-//         var newBallPosition = {
-//             top: ballPosition.top + Math.sin(degree * Math.PI / 180) * 5,
-//             left: ballPosition.left + Math.cos(degree * Math.PI / 180) * 5
-//         };
-//         $(ball).css(newBallPosition);
-//     }, 1000/60);
-// });
+let degree =45;
+$(function () {
+    setInterval(function () {
+        let player1Position = $(player1.id).position(); 
+        let player2Position = $(player2.id).position();
+        let ballPosition = ball.position();
+        const newBallPosition = {
+            top: ballPosition.top + Math.sin(degree * Math.PI / 180) * 5,
+            left: ballPosition.left + Math.cos(degree * Math.PI / 180) * 5
+        };
+        
+        if (newBallPosition.top + ball.height() >= boxSize.height) {
+            degree = 360 - degree;
+        }
+
+        console.log("top: ",newBallPosition.top);
+        console.log("left: ",newBallPosition.left);
+        console.log("top+height: ",newBallPosition.top + ball.height());
+        console.log("height: ",boxSize.height);
+        console.log("degree: ",degree);
+        console.log("====================================");
+        
+        ball.css(newBallPosition);
+    }, 100);
+});
+
