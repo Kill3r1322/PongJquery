@@ -76,16 +76,16 @@ $(document).keydown(function () {
 
 //pilka
 
-const ball = document.getElementById("ball");
-var degree = 45;
-$(function () {
-    setInterval(function () {
-        //movment
-        var ballPosition = $(ball).position();
-        var newBallPosition = {
-            top: ballPosition.top + Math.sin(degree * Math.PI / 180) * 5,
-            left: ballPosition.left + Math.cos(degree * Math.PI / 180) * 5
-        };
-        $(ball).css(newBallPosition);
-    }, 1000/60);
-});
+// const ball = document.getElementById("ball");
+// var degree = 45;
+// $(function () {
+//     setInterval(function () {
+//         //movment
+//         var ballPosition = $(ball).position();
+//         var newBallPosition = {
+//             top: ballPosition.top + Math.sin(degree * Math.PI / 180) * 5,
+//             left: ballPosition.left + Math.cos(degree * Math.PI / 180) * 5
+//         };
+//         $(ball).css(newBallPosition);
+//     }, 1000/60);
+// });
