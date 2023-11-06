@@ -39,22 +39,22 @@ function restart() {
     $("#score2").text(player2.score);
     console.log("====================================");
     console.log("restart");
-    console.log("player1 score",player1.score);
-    console.log("player2 score",player2.score);
+    console.log("player1 score", player1.score);
+    console.log("player2 score", player2.score);
     console.log("====================================");
 };
 
 function score(player) {
     ball.css({ "top": "165px", "left": "300px" });
     if (player == player1) {
-        player1.score+=1;
-        console.log("player1 score",player1.score);
+        player1.score += 1;
+        console.log("player1 score", player1.score);
         $("#score1").text(player1.score);
         degree = 45;
     }
     else {
-        player2.score+=1;
-        console.log("player2 score",player2.score);
+        player2.score += 1;
+        console.log("player2 score", player2.score);
         $("#score2").text(player2.score);
         degree = 225;
     }
@@ -66,7 +66,7 @@ const boxSize = { width: 600, height: 350 };
 const duration = 5
 const PlayerSpeed = 10
 $(document).keydown(function () {
-    if (keys.includes("w")||keys.includes("W")) {
+    if (keys.includes("w") || keys.includes("W")) {
         if ($(player1.id).position().top > boxSize.height - boxSize.height) {
             $(player1.id).animate(
                 { "bottom": "+=" + PlayerSpeed + "px" },
@@ -76,7 +76,7 @@ $(document).keydown(function () {
         }
     }
 
-    if (keys.includes("s")||keys.includes("S")) {
+    if (keys.includes("s") || keys.includes("S")) {
         if ($(player1.id).position().top + $(player1.id).height() < boxSize.height - 5) {
             $(player1.id).animate(
                 { "bottom": "-=" + PlayerSpeed + "px" },
@@ -117,69 +117,97 @@ $(document).keydown(function () {
 const ball = $('#ball')
 const ballSize = { width: 20 + 5, height: 20 + 5 };
 let degree = 45;
-var BallSpeed = 5; //speed of ball higher = slower
+let BallSpeed = 1; //speed of ball higher = faster
+
+//change speed of ball
+function changeSpeed() {
+    if (document.getElementById("btnradio1").checked) {
+        BallSpeed = 100;
+        console.log("btnradio1");
+    }
+    else if (document.getElementById("btnradio2").checked) {
+        BallSpeed = 350;
+        console.log("btnradio2");
+    }
+    else if (document.getElementById("btnradio3").checked) {
+        BallSpeed = 500;
+        console.log("btnradio3");
+    }
+}
+
+
+let Interval;
+
+
+
+
 $(function () {
-    setInterval(function () {
-        let player1Position = $(player1.id).position();
-        let player2Position = $(player2.id).position();
-        let ballPosition = ball.position();
-        const newBallPosition = {
-            top: ballPosition.top + Math.sin(degree * Math.PI / 180) * 5,
-            left: ballPosition.left + Math.cos(degree * Math.PI / 180) * 5
-        };
-        //ball hit bottom wall
-        if (newBallPosition.top + ballSize.height >= boxSize.height) {
-            degree = 360 - degree;
-        }
-        //ball hit top wall
-        else if (newBallPosition.top <= 0) {
-            degree = 360 - degree;
-        }
-        //ball hit right wall
-        else if (newBallPosition.left + ballSize.width >= boxSize.width) {
-            score(player1);
-        }
-        //ball hit left wall
-        else if (newBallPosition.left <= 0) {
-            score(player2);
-        }
-        //ball hit player1
-        else if (newBallPosition.top >= player1Position.top && newBallPosition.top <= player1Position.top + $(player1.id).height() && newBallPosition.left <= $(player1.id).width()+player1Position.left) {
-            degree = 180 - degree;
-            ball.css(newBallPosition);
-        }
-        //ball hit player2
-        else if (newBallPosition.top >= player2Position.top && newBallPosition.top <= player2Position.top + $(player2.id).height() && newBallPosition.left + ballSize.width >= player2Position.left) {
-            degree = 180 - degree;
-            ball.css(newBallPosition);
-        }
-        //player1 win
-        else if(player1.score==5){
-            restart();
-            alert("Player 1 win");
-            clearInterval();
-        }
-        //player2 win
-        else if(player2.score==5){
-            restart();
-            alert("Player 2 win");
-            clearInterval();
-        }
-        //ball move
-        else {
-            ball.css(newBallPosition);
-        }
-        // console.log("newBallPosition.left+ballSize.width: ", newBallPosition.left + ballSize.width);
-        // console.log("boxSize-player2.width: ", boxSize.width - $(player2.id).width());
-        // console.log("player2Position.left: ", player2Position.left);
-        // console.log("degree: ",degree);
-        // console.log("====================================");
-        // console.log("top: ",newBallPosition.top);
-        // console.log("left: ",newBallPosition.left);
-        // console.log("top+height: ",newBallPosition.top + ball.height());
-        // console.log("height: ",boxSize.height);
-        // console.log("degree: ",degree);
-        // console.log("====================================");
-    }, BallSpeed);
+    changeSpeed();
+    console.log(BallSpeed)
+    // Interval=setInterval(function () {
+    //     let player1Position = $(player1.id).position();
+    //     let player2Position = $(player2.id).position();
+    //     let ballPosition = ball.position();
+    //     const newBallPosition = {
+    //         top: ballPosition.top + Math.sin(degree * Math.PI / 180) * 5,
+    //         left: ballPosition.left + Math.cos(degree * Math.PI / 180) * 5
+    //     };
+    //     //ball hit bottom wall
+    //     if (newBallPosition.top + ballSize.height >= boxSize.height) {
+    //         degree = 360 - degree;
+    //     }
+    //     //ball hit top wall
+    //     else if (newBallPosition.top <= 0) {
+    //         degree = 360 - degree;
+    //     }
+    //     //ball hit right wall
+    //     else if (newBallPosition.left + ballSize.width >= boxSize.width) {
+    //         score(player1);
+    //     }
+    //     //ball hit left wall
+    //     else if (newBallPosition.left <= 0) {
+    //         score(player2);
+    //     }
+    //     //ball hit player1
+    //     else if (newBallPosition.top >= player1Position.top && newBallPosition.top <= player1Position.top + $(player1.id).height() && newBallPosition.left <= $(player1.id).width() + player1Position.left) {
+    //         degree = 180 - degree;
+    //         ball.css(newBallPosition);
+    //     }
+    //     //ball hit player2
+    //     else if (newBallPosition.top >= player2Position.top && newBallPosition.top <= player2Position.top + $(player2.id).height() && newBallPosition.left + ballSize.width >= player2Position.left) {
+    //         degree = 180 - degree;
+    //         ball.css(newBallPosition);
+    //     }
+    //     //player1 win
+    //     else if (player1.score == 5) {
+    //         restart();
+
+    //         alert("Player 1 win");
+    //         clearInterval(Interval);
+    //     }
+    //     //player2 win
+    //     else if (player2.score == 5) {
+    //         restart();
+    //         alert("Player 2 win");
+    //         clearInterval(Interval);
+    //     }
+    //     //ball move
+    //     else {
+    //         ball.css(newBallPosition);
+    //     }
+    //     console.log("ball speed: ", BallSpeed);
+    //     // console.log("====================================");
+    //     // console.log("newBallPosition.left+ballSize.width: ", newBallPosition.left + ballSize.width);
+    //     // console.log("boxSize-player2.width: ", boxSize.width - $(player2.id).width());
+    //     // console.log("player2Position.left: ", player2Position.left);
+    //     // console.log("degree: ",degree);
+    //     // console.log("====================================");
+    //     // console.log("top: ",newBallPosition.top);
+    //     // console.log("left: ",newBallPosition.left);
+    //     // console.log("top+height: ",newBallPosition.top + ball.height());
+    //     // console.log("height: ",boxSize.height);
+    //     // console.log("degree: ",degree);
+    //     // console.log("====================================");
+    // }, 1000 / BallSpeed);
 });
 
