@@ -101,9 +101,8 @@ input[type=button] {
     padding-bottom: 10px;
 }
 
- /* class="d-flex py-0 px-2 font-weight-bold"  */
 
-#ScoreDiv {
+.ScoreDiv {
     display: flex;
     justify-content: center;
     width: 50%;
@@ -113,11 +112,6 @@ input[type=button] {
     float: left;
 }
 
-/* #GameModes {
-    display: flex;
-    margin-top: 10px;
-    width: 30%;
-} */
 body {
     min-width: 700px;
 }
