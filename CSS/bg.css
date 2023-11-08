@@ -1,0 +1,65 @@
+html, body, h1 {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height:100vh;
+    width:100vw;
+}
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: black;
+    position: relative;
+    font-family: 'Orbitron', sans-serif;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+svg {
+    width: 100vw;
+    height: 100vh;
+}
+#marquee {
+    text-shadow: 0 0 10px white;
+}
+
+/**********PRESETS************/
+body.glass rect {
+    opacity: .8;
+}
+.RGB rect{
+    transition: fill 5s;
+}
+
+.RGB .yellow {
+    fill: rgba(243, 239, 25, 0.7);
+}
+
+.RGB .red {
+    fill: rgba(255, 0, 0, .7);
+}
+
+.RGB .blue {
+    fill: rgba(0, 0, 255, .7);
+}
+
+.RGB .green {
+    fill: rgba(82, 197, 16, 0.7);
+}
+body.particles {
+    background-color: rgba(10, 10, 15, 1);
+}
+.invisible {
+    display:none;
+}
+@media only screen and (max-width:600px) {
+    body {
+        font-size:90%;
+    }
+    h1 {
+        transform:scale(.8);
+    }
+}
+
